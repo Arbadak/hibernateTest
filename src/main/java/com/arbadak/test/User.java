@@ -1,3 +1,4 @@
+package com.arbadak.test;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Columns;
 import org.hibernate.annotations.Generated;
@@ -6,21 +7,26 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="U0")
+@Table(name="uzr")
 public class User implements Serializable {
 @Id
+
+@GeneratedValue(strategy = GenerationType.AUTO)
 @Column(name="id")
-@GeneratedValue
     private long id;
 
 @Column(name="age", nullable = false)
     private int age;
 
-@Column(name="first_name", nullable = false)
+@Column(name="first_name",length = 50, nullable = false)
     private String firstname;
 
-@Column(name="lastname")
+@Column(name="last_name",length = 50, nullable = false)
     private String lastname;
+
+@ManyToOne
+@JoinColumn(name = "role_id",  nullable = false)
+private Role role;
 
 
     public User(){
@@ -67,7 +73,11 @@ public class User implements Serializable {
         this.lastname = lastname;
     }
 
+    public Role getRole() {
+        return role;
+    }
 
-
-
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }
