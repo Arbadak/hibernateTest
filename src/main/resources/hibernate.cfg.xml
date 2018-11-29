@@ -4,15 +4,19 @@
     <session-factory>
        <!-- <property name="connection.driver_class">com.mysql.jdbc.Driver</property> -->
         <!-- <property name="connection.url">jdbc:mysql://den1.mysql4.gear.host:3306/notifyerdb</property> -->
-         <property name="connection.url">jdbc:mysql://localhost:3306/notifyerdb</property>
+         <property name="connection.url">jdbc:mysql://localhost:3306/studyprojectdb</property>
          <property name="connection.username">notifyerdb</property>
          <property name="connection.password">Lc9C-lD7!k4d</property>
          <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
          <property name="show_sql">true</property>
          <property name="format_sql">true</property>
          <property name="hibernate.hbm2ddl.auto">create</property>
-        <mapping class="com.arbadak.test.User"/>
-        <mapping class="com.arbadak.test.Role"/>
+
+        <mapping class="com.arbadak.test.Doc"/>
+        <mapping class="com.arbadak.test.Country"/>
+        <mapping class="com.arbadak.test.Organization"/>
+        <mapping class="com.arbadak.test.Office"/>
+               <mapping class="com.arbadak.test.User"/>
      </session-factory>
  </hibernate-configuration>
 

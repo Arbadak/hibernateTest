@@ -1,83 +1,58 @@
 package com.arbadak.test;
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.Columns;
-import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name="uzr")
-public class User implements Serializable {
-@Id
+@Table(name="user")
+public class User{
 
-@GeneratedValue(strategy = GenerationType.AUTO)
-@Column(name="id")
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id_user", columnDefinition ="INT", nullable = false)
+    private Integer userId;
 
-@Column(name="age", nullable = false)
-    private int age;
+    @Column(name="first_name", columnDefinition ="VARCHAR(15)", nullable = false)
+    private String firstName;
 
-@Column(name="first_name",length = 50, nullable = false)
-    private String firstname;
+    @Column(name="second_name", columnDefinition ="VARCHAR(15)", nullable = true)
+    private String secondName;
 
-@Column(name="last_name",length = 50, nullable = false)
-    private String lastname;
+    @Column(name="last_name", columnDefinition ="VARCHAR(15)", nullable = true)
+    private String lastName;
 
-@ManyToOne
-@JoinColumn(name = "role_id",  nullable = false)
-private Role role;
+    @Column(name="position", columnDefinition ="VARCHAR(25)", nullable = false)
+    private String position;
+
+    @Column(name="user_phone", columnDefinition ="INT(11)", nullable = true)
+    private Integer userPhone;
+
+    @ManyToOne
+    @JoinColumn(name = "doc_id")
+    private Doc docId;
+
+    @Column(name="doc_number", columnDefinition ="INT(10)", nullable = false)
+    private Integer docNumber;
+
+    @Column(name="doc_date", columnDefinition ="DATE", nullable = false)
+    private LocalDate docDate;
+
+   /*@OneToMany (cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "citizenship_id")
+    private List<Country> citizenshipID;*/
+
+    @ManyToOne
+    @JoinColumn(name = "citizenship_id")
+    private Country citizenshipCountry;
+
+    @Column(name="is_identified", columnDefinition ="TINYINT", nullable = true)
+    private Integer isIdentified;
+
+    @ManyToOne
+    @JoinColumn(name = "office_id")
+    private Office bindedOffice;
 
 
-    public User(){
 
-    }
-
-    public User (long id){
-        this.id=id;
-
-    }
-
-
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
 }
