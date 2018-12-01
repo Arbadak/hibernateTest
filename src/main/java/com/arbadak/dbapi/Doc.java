@@ -1,4 +1,4 @@
-package com.arbadak.test;
+package com.arbadak.dbapi;
 
 import javax.persistence.*;
 
@@ -15,7 +15,7 @@ public class Doc {
     @Column(name="doc_name", columnDefinition ="VARCHAR(115)", nullable = false)
     private String docName;
 
-    @Column(name="doc_code", columnDefinition ="INT(2)",nullable = false)
+    @Column(name="doc_code", columnDefinition ="VARCHAR(3)",nullable = false)
     private String docCode;
 
 }

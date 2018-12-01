@@ -1,7 +1,6 @@
-package com.arbadak.test;
+package com.arbadak.dbapi;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name="office")
@@ -22,11 +21,11 @@ public class Office {
     @Column(name="phone", columnDefinition ="INT(11)", nullable = true)
     private int phoneOffice;
 
-    @Column(name="is_active", columnDefinition ="TINYINT", nullable = true)
-    private int isActive;
+    @Column(name="is_active", columnDefinition ="BOOLEAN", nullable = true)
+    private Boolean isActive;
 
-    @Column(name="is_main", columnDefinition ="TINYINT", nullable = true)
-    private int isMain;
+    @Column(name="is_main", columnDefinition ="BOOLEAN", nullable = true)
+    private Boolean isMain;
 
 
 

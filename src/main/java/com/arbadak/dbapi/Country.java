@@ -1,8 +1,7 @@
-package com.arbadak.test;
+package com.arbadak.dbapi;
 
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name="country")

@@ -1,11 +1,11 @@
-package com.arbadak.test;
+package com.arbadak.dbapi;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Table(name="user")
+@SecondaryTable(name="doc_data", pkJoinColumns = {@PrimaryKeyJoinColumn(name = "id_user")})
 public class User{
 
     @Id
@@ -32,10 +32,10 @@ public class User{
     @JoinColumn(name = "doc_id")
     private Doc docId;
 
-    @Column(name="doc_number", columnDefinition ="INT(10)", nullable = false)
+    @Column(name="doc_number", table = "doc_data", columnDefinition ="INT(10)", nullable = false)
     private Integer docNumber;
 
-    @Column(name="doc_date", columnDefinition ="DATE", nullable = false)
+    @Column(name="doc_date", table = "doc_data", columnDefinition ="DATE", nullable = false)
     private LocalDate docDate;
 
    /*@OneToMany (cascade = CascadeType.ALL, orphanRemoval = true)
@@ -46,8 +46,8 @@ public class User{
     @JoinColumn(name = "citizenship_id")
     private Country citizenshipCountry;
 
-    @Column(name="is_identified", columnDefinition ="TINYINT", nullable = true)
-    private Integer isIdentified;
+    @Column(name="is_identified", columnDefinition ="BOOLEAN", nullable = true)
+    private Boolean isIdentified;
 
     @ManyToOne
     @JoinColumn(name = "office_id")

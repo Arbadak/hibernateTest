@@ -1,4 +1,4 @@
-package com.arbadak.test;
+package com.arbadak.dbapi;
 import org.hibernate.SessionFactory;
 
 

@@ -12,11 +12,11 @@
          <property name="format_sql">true</property>
          <property name="hibernate.hbm2ddl.auto">create</property>
 
-        <mapping class="com.arbadak.test.Doc"/>
-        <mapping class="com.arbadak.test.Country"/>
-        <mapping class="com.arbadak.test.Organization"/>
-        <mapping class="com.arbadak.test.Office"/>
-               <mapping class="com.arbadak.test.User"/>
+        <mapping class="com.arbadak.dbapi.Doc"/>
+        <mapping class="com.arbadak.dbapi.Country"/>
+        <mapping class="com.arbadak.dbapi.Organization"/>
+        <mapping class="com.arbadak.dbapi.Office"/>
+               <mapping class="com.arbadak.dbapi.User"/>
      </session-factory>
  </hibernate-configuration>
 
