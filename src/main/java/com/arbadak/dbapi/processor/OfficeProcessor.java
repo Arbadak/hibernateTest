@@ -1,0 +1,42 @@
+package com.arbadak.dbapi.processor;
+
+import com.arbadak.dbapi.Office;
+
+import java.util.List;
+
+/**
+     *  The office request processing unit interface
+     */
+
+
+@Validated
+
+    public interface OfficeProcessor {
+
+        /**
+         * Processing ||| office/list/{orgId} ||| request
+         */
+    List<Office> foundedOfficeList(Integer orgId);
+
+
+    /**
+     * Processing ||| office/{id} ||| request     *
+     */
+
+    Office foundedOffice(Integer officeId);
+
+    /**
+     * Processing ||| office/update |||
+     */
+
+    void updateOffice (Officeview office);  ////Надо уточнить тип обьекта, возможно для апдейта нужен не такой же как для сейва, возможно нужно добавтть проверку
+    // на сущевствование обновляемого офиса
+
+    /**
+     * Processing ||| office/save |||
+     */
+
+    void updateOffice (Offceview office);
+
+}
+
