@@ -8,10 +8,6 @@ import javax.persistence.*;
 public class Country {
 
     @Id
-    /*@Column (name = "citizenship_id_tbl_country", columnDefinition = "INT", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer citizinshipIdCountry;*/
-
     @Column (name = "citizenship_id", columnDefinition = "INT", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer citizinshipId;

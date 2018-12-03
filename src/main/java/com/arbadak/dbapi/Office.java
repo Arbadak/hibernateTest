@@ -9,7 +9,7 @@ public class Office {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="office_id", columnDefinition ="INT",  nullable = false)
-    private long officeId;
+    private Integer officeId;
 
     @ManyToOne
     @JoinColumn(name = "organization_id")
@@ -19,7 +19,7 @@ public class Office {
     private String address;
 
     @Column(name="phone", columnDefinition ="INT(11)", nullable = true)
-    private int phoneOffice;
+    private Integer phoneOffice;
 
     @Column(name="is_active", columnDefinition ="BOOLEAN", nullable = true)
     private Boolean isActive;
@@ -28,5 +28,24 @@ public class Office {
     private Boolean isMain;
 
 
+    public Office(Integer officeId, Organization organizationId, String address, int phoneOffice, Boolean isActive, Boolean isMain) {
+        this.officeId = officeId;
+        this.organizationId = organizationId;
+        this.address = address;
+        this.phoneOffice = phoneOffice;
+        this.isActive = isActive;
+        this.isMain = isMain;
+    }
 
+    public void setOfficeId(Integer officeId) {this.officeId = officeId;}
+    public Organization getOrganizationId() {return organizationId;}
+    public void setOrganizationId(Organization organizationId) {this.organizationId = organizationId;}
+    public String getAddress() {return address;}
+    public void setAddress(String address) {this.address = address;}
+    public int getPhoneOffice() {return phoneOffice;}
+    public void setPhoneOffice(Integer phoneOffice) {this.phoneOffice = phoneOffice;}
+    public Boolean getActive() {return isActive;}
+    public void setActive(Boolean active) {isActive = active;}
+    public Boolean getMain() {return isMain;}
+    public void setMain(Boolean main) {isMain = main;}
 }

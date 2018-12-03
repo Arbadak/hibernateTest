@@ -1,4 +1,4 @@
-package com.arbadak.dbapi.processor;
+package com.arbadak.dbapi.service;
 
 import com.arbadak.dbapi.Office;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Validated
 
-    public interface OfficeProcessor {
+    public interface OfficeService {
 
         /**
          * Processing ||| office/list/{orgId} ||| request

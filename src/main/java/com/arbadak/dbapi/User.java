@@ -38,10 +38,6 @@ public class User{
     @Column(name="doc_date", table = "doc_data", columnDefinition ="DATE", nullable = false)
     private LocalDate docDate;
 
-   /*@OneToMany (cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "citizenship_id")
-    private List<Country> citizenshipID;*/
-
     @ManyToOne
     @JoinColumn(name = "citizenship_id")
     private Country citizenshipCountry;
