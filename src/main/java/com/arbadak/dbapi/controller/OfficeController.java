@@ -1,5 +1,5 @@
 package com.arbadak.dbapi.controller;
-
+/*
 
     /// @Api(value = "OfficeController", description = "Управление информацией об офисах") это кажется к свагеру относится
     @RestController
@@ -23,4 +23,4 @@ package com.arbadak.dbapi.controller;
 
 
 
-}
+}*/

@@ -12,8 +12,11 @@ public class Office {
     private Integer officeId;
 
     @ManyToOne
-    @JoinColumn(name = "organization_id")
+    @JoinColumn(name = "organization_id", nullable = false)
     private Organization organizationId ;
+
+    @Column(name="office_name", columnDefinition ="VARCHAR(50)", nullable = false)
+    private String officeName;
 
     @Column(name="address", columnDefinition ="VARCHAR(100)", nullable = false)
     private String address;

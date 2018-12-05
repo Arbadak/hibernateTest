@@ -15,7 +15,7 @@ CREATE TABLE organization (
 	full_name VARCHAR(60) NOT NULL COMMENT 'Полное имя организации' COLLATE 'utf8_bin' ,
 	inn INT(12) NOT NULL COMMENT 'ИНН организации',
 	kpp INT(9) NOT NULL COMMENT 'КПП организации',
-	short_name VARCHAR(30) COMMENT 'СОкращеное имя организации' COLLATE 'utf8_bin',
+	short_name VARCHAR(30) COMMENT 'Сокращенное имя организации' COLLATE 'utf8_bin',
 	PRIMARY KEY (org_id));
 
 CREATE TABLE office (
@@ -26,7 +26,7 @@ CREATE TABLE office (
 	phone INT(11) NULL DEFAULT NULL COMMENT 'Телефон офиса',
 	address VARCHAR(100) NOT NULL COMMENT 'Адрес офиса' COLLATE utf8_bin,
 	is_active BOOLEAN(4) DEFAULT NULL COMMENT 'Офис работает',
-	is_main BOOLEAN(4) DEFAULT NULL COMMENT 'Головного офиса',
+	is_main BOOLEAN(4) DEFAULT NULL COMMENT 'Головной офис',
  	PRIMARY KEY (office_id));
 
 CREATE TABLE user (
