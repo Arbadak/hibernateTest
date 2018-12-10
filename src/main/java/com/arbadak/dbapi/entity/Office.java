@@ -1,4 +1,6 @@
-package com.arbadak.dbapi;
+package com.arbadak.dbapi.entity;
+
+import com.arbadak.dbapi.entity.Organization;
 
 import javax.persistence.*;
 
@@ -8,14 +10,14 @@ public class Office {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="office_id", columnDefinition ="INT",  nullable = false)
+    @Column(name="id", columnDefinition ="INT",  nullable = false)
     private Integer officeId;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "organization_id", nullable = false)
     private Organization organizationId ;
 
-    @Column(name="office_name", columnDefinition ="VARCHAR(50)", nullable = false)
+    @Column(name="name", columnDefinition ="VARCHAR(50)", nullable = false)
     private String officeName;
 
     @Column(name="address", columnDefinition ="VARCHAR(100)", nullable = false)
@@ -30,15 +32,7 @@ public class Office {
     @Column(name="is_main", columnDefinition ="BOOLEAN", nullable = true)
     private Boolean isMain;
 
-
-    public Office(Integer officeId, Organization organizationId, String address, int phoneOffice, Boolean isActive, Boolean isMain) {
-        this.officeId = officeId;
-        this.organizationId = organizationId;
-        this.address = address;
-        this.phoneOffice = phoneOffice;
-        this.isActive = isActive;
-        this.isMain = isMain;
-    }
+    public Office() { }
 
     public void setOfficeId(Integer officeId) {this.officeId = officeId;}
     public Organization getOrganizationId() {return organizationId;}

@@ -19,21 +19,21 @@ CREATE TABLE organization (
 	PRIMARY KEY (id));
 
 CREATE TABLE office (
-	id INT(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор офиса',
+	id INT NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор офиса',
 	organization_id INT(11) NOT NULL COMMENT 'Идентификатор организации которой принадлежит офис',
 	CONSTRAINT FK_link_organization FOREIGN KEY (organization_id) REFERENCES organization (id),
 	INDEX IX_organizaton_organization_id (organization_id),
 	name VARCHAR(50) NOT NULL COMMENT 'Наименование офиса' COLLATE utf8_bin,
 	phone INT(11) NULL DEFAULT NULL COMMENT 'Телефон офиса',
 	address VARCHAR(100) NOT NULL COMMENT 'Адрес офиса' COLLATE utf8_bin,
-	active BOOLEAN DEFAULT NULL COMMENT 'Офис работает',
-	main BOOLEAN DEFAULT NULL COMMENT 'Головной офис',
+	is_active BOOLEAN DEFAULT NULL COMMENT 'Офис работает',
+	is_main BOOLEAN DEFAULT NULL COMMENT 'Головной офис',
  	PRIMARY KEY (id));
 
  CREATE TABLE doc_data (
 	id INT NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор документа',
 	date DATE NOT NULL COMMENT 'Дата выдачи документа',
-	number INT(10) NOT NULL COMMENT 'Номер документа',
+	number VARCHAR(10) NOT NULL COMMENT 'Номер документа',
 	type INT(11) NOT NULL COMMENT 'Тип документа пользователя',
 	CONSTRAINT FK_link_doc FOREIGN KEY (type) REFERENCES `doc` (id),
 	PRIMARY KEY (id));
@@ -44,6 +44,8 @@ CREATE TABLE user (
 	first_name VARCHAR(15) NOT NULL COMMENT 'Имя' COLLATE 'utf8_bin',
 	second_name VARCHAR(15) COMMENT 'Отчество' COLLATE 'utf8_bin',
 	last_name VARCHAR(15) COMMENT 'Фамилия' COLLATE 'utf8_bin',
+	position  VARCHAR(30) COMMENT 'Занимаемая должночть' COLLATE 'utf8_bin',
+	phone INT(11) NULL DEFAULT NULL COMMENT 'Телефон полльзователя',
 	identified BOOLEAN DEFAULT NULL COMMENT 'Признак идентифицированности пользователя',
 	document INT NOT NULL COMMENT 'Документа пользователя',
 	    CONSTRAINT FK_link_document FOREIGN KEY (document) REFERENCES doc_data (id),

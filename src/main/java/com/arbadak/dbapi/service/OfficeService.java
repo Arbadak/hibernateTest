@@ -1,6 +1,6 @@
 package com.arbadak.dbapi.service;
 /*
-import com.arbadak.dbapi.Office;
+import com.arbadak.dbapi.entity.Office;
 
 import java.util.List;
 
