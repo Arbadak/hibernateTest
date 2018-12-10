@@ -44,4 +44,13 @@ public class Country {
     public void setCitizenshipName(String citizenshipName) {
         this.citizenshipName = citizenshipName;
     }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "citizinshipId=" + citizinshipId +
+                ", citizenshipCode='" + citizenshipCode + '\'' +
+                ", citizenshipName='" + citizenshipName + '\'' +
+                '}';
+    }
 }
