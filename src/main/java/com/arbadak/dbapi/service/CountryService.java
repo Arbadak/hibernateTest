@@ -13,14 +13,10 @@ public class CountryService  extends SessionUtil implements CountryDAO {
     @Override
     public Country getById(Integer id) throws SQLException {
         Country country = null;
-
-        try {
-            openTransactionSession();
-            Session session = getSession();
-            country = (Country) session.get(Country.class, id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        openTransactionSession();
+        Session session = getSession();
+        country = (Country) session.get(Country.class, id);
+        closeTransactionSession();
         return country;
     }
 }

@@ -1,43 +1,58 @@
 package com.arbadak.dbapi.service;
-/*
+
+import com.arbadak.dbapi.SessionUtil;
+import com.arbadak.dbapi.dao.OfficeDAO;
 import com.arbadak.dbapi.entity.Office;
+import com.arbadak.dbapi.entity.Organization;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
+import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
-/**
-     *  The office request processing unit interface
-     */
-/*
+public class OfficeService  extends SessionUtil implements OfficeDAO {
 
-@Validated
+    @Override
+    public void add(Office office) throws SQLException {
+    openTransactionSession();
+    Session session=getSession();
+    session.save(office);
+    closeTransactionSession();
+    }
 
-    public interface OfficeService {
+    @Override
+    public List<Office> getbyOrgID(Integer orgId) throws SQLException {
+        List<Office> office=null;
+        openTransactionSession();
+        Session session=getSession();
+      //  office = session.createCriteria(Office.class).list();
+        //office = (List<Office>) session.createCriteria(Office.class ).add(Restrictions.eq("organizationId", orgId)).uniqueResult();
+        office = (List)session.createCriteria(Office.class ).createCriteria("organizationId").add(Restrictions.eq("orgId", orgId)).list();
+       /* for(Iterator<Office> iterator=office.iterator(); iterator.hasNext();){
+            Integer currentOfficeOrgId=iterator.next().getOrganizationId().getOrgId();
+            if(currentOfficeOrgId!=orgId){ iterator.remove();}
+        }*/
+    closeTransactionSession();
+        return office;
+    }
 
-        /**
-         * Processing ||| office/list/{orgId} ||| request
-         */
-    /*List<Office> foundedOfficeList(Integer orgId);
-/*
+    @Override
+    public Office getById(Integer id) throws SQLException {
+    Office office = null;
+    openTransactionSession();
+    Session session=getSession();
+    office = (Office)session.get(Office.class, id);
+    closeTransactionSession();
+        return office;
+    }
 
-    /**
-     * Processing ||| office/{id} ||| request     *
-     */
-
- /*   Office foundedOffice(Integer officeId);
-
-    /**
-     * Processing ||| office/update |||
-     */
-
- /*   void updateOffice (Officeview office);  ////Надо уточнить тип обьекта, возможно для апдейта нужен не такой же как для сейва, возможно нужно добавтть проверку
-    // на сущевствование обновляемого офиса
-
-    /**
-     * Processing ||| office/save |||
-     */
-
- /*   void updateOffice (Offceview office);
-
+    @Override
+    public void update(Office office) throws SQLException {
+        openTransactionSession();
+        Session session=getSession();
+        session.update(office);
+        closeTransactionSession();
+    }
 }
-
-*/

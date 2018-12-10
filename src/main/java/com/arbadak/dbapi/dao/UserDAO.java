@@ -13,7 +13,7 @@ public interface UserDAO {
     void add(User user) throws SQLException;
 
     ///read
-    List<User> getAll(User user)throws SQLException;
+    List<User> getAll(Integer officeId)throws SQLException;
     User getById(Integer id) throws SQLException;
 
     ///update
